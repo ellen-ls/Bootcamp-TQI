@@ -17,6 +17,9 @@ function flipCard(){
     hasFlippedCard = false;
     checkForMatch();
 }
+
+//conferindo se é igual as cartas
+
 function checkForMatch(){
     if(firstCard.dataset.card === secondCard.dataset.card){
         disableCards();
@@ -25,12 +28,16 @@ function checkForMatch(){
     unflipCards();
 }
 
+//desabilitando o click das cartas que foram viradas
+
 function disableCards(){
     firstCard.removeEventListenner('click', flipCard);
     secondCard.removeEventListenner('click', flipCard);
 
     resetBoard();
 }
+
+//virando as cartas desiguais
 
 function unflipCards(){
     lockBoard = true;
@@ -48,10 +55,23 @@ function resetBoard(){
     [firstCard , secondCard] = [null, null];
 }
 
+function resetGame(){
+    cards.forEach((card)=>{
+        card.classList.remove('flip');
+        card.addEventListener('click', flipCard);
+        setTimeout(()=>{
+            let randomPosition = Math.floor(Math.random() * 12);
+        card.style.order = randomPosition;
+        }, 600)
+    })
+    resetBoard()
+}
+
 (function shuffle(){
     cards.forEach((card)=>{
         let randomPosition = Math.floor(Math.random() * 12);
         card.style.order = randomPosition;
+        
     })
 })()
 

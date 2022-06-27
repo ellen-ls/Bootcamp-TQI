@@ -56,3 +56,17 @@ body{
 .card.flip{
     transform: rotateY(180deg);
 }
+
+button{
+    width:90px;
+    height:50px;
+    margin-top: 20%;
+    margin-right: 10px;
+    background-color: rgb(145, 137, 137);
+    border-color: rgb(139, 160, 180);
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(83, 81, 81);
+}
